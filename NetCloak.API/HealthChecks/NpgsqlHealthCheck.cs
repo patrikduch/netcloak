@@ -3,7 +3,6 @@
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Npgsql;
 
-
 /// <summary>
 /// Represents a custom health check for Npgsql database connections.
 /// Implements the <see cref="IHealthCheck"/> interface.

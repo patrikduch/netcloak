@@ -1,10 +1,9 @@
-﻿// AuthController.cs
+﻿namespace NetCloak.API.Controllers;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NetCloak.Application.Dtos.Auth.Requests;
 using NetCloak.Application.Interfaces.Infrastructure;
-
-namespace NetCloak.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -21,7 +20,7 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Login([FromBody] LoginRequestDTO request)
     {
         var result = await _authService.LoginAsync(request);
-        
+
         return result is null 
             ? Unauthorized("Invalid credentials") 
             : Ok(result);
@@ -31,7 +30,7 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Refresh([FromBody] RefreshTokenRequestDTO request)
     {
         var result = await _authService.RefreshTokenAsync(request.RefreshToken);
-        
+
         return result is null 
             ? Unauthorized("Invalid refresh token") 
             : Ok(result);
