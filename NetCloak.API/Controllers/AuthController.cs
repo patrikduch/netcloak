@@ -37,6 +37,11 @@ public class AuthController : ControllerBase
             : Ok(result);
     }
 
+    /// <summary>
+    /// Refresh access token using a valid refresh token.
+    /// </summary>
+    /// <param name="request">The refresh token request containing the refresh token.</param>
+    /// <returns>Returns an IActionResult with new JWT tokens or unauthorized status.</returns>
     [HttpPost("refresh")]
     public async Task<IActionResult> Refresh([FromBody] RefreshTokenRequestDTO request)
     {
