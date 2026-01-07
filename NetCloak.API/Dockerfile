@@ -13,11 +13,11 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Directory.Build.props", "."]
-COPY ["NetCloak.API/NetCloak.API.csproj", "StyleCopExample.API/"]
-COPY ["StyleCopExample.Infrastructure/NetCloak.Infrastructure.csproj", "StyleCopExample.Infrastructure/"]
-COPY ["StyleCopExample.Application/NetCloak.Application.csproj", "StyleCopExample.Application/"]
-COPY ["StyleCopExample.Persistence/NetCloak.Persistence.csproj", "StyleCopExample.Persistence/"]
-RUN dotnet restore "./StyleCopExample.API/NetCloak.API.csproj"
+COPY ["NetCloak.API/NetCloak.API.csproj", "NetCloak.API/"]
+COPY ["NetCloak.Infrastructure/NetCloak.Infrastructure.csproj", "NetCloak.Infrastructure/"]
+COPY ["NetCloak.Application/NetCloak.Application.csproj", "NetCloak.Application/"]
+COPY ["NetCloak.Persistence/NetCloak.Persistence.csproj", "NetCloak.Persistence/"]
+RUN dotnet restore "./NetCloak.API/NetCloak.API.csproj"
 COPY . .
 WORKDIR "/src/NetCloak.API"
 RUN dotnet build "./NetCloak.API.csproj" -c $BUILD_CONFIGURATION -o /app/build

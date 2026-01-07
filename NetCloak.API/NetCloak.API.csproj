@@ -30,8 +30,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StyleCopExample.Infrastructure\NetCloak.Infrastructure.csproj" />
-    <ProjectReference Include="..\StyleCopExample.Persistence\NetCloak.Persistence.csproj" />
+    <ProjectReference Include="..\NetCloak.Infrastructure\NetCloak.Infrastructure.csproj" />
+    <ProjectReference Include="..\NetCloak.Persistence\NetCloak.Persistence.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

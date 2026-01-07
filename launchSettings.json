@@ -4,8 +4,10 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "stylecopexample.api": "StartDebugging"
-      }
+        "netcloak.api": "StartDebugging"
+      },
+      "launchBrowser": true,
+      "launchUrl": "https://localhost:8082/swagger"
     }
   }
 }

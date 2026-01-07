@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StyleCop.Domain\NetCloak.Domain.csproj" />
+    <ProjectReference Include="..\NetCloak.Domain\NetCloak.Domain.csproj" />
   </ItemGroup>
 
 </Project>

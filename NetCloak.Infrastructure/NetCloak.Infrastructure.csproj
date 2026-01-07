@@ -16,7 +16,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\StyleCopExample.Application\NetCloak.Application.csproj" />
+	  <ProjectReference Include="..\NetCloak.Application\NetCloak.Application.csproj" />
 	</ItemGroup>
 
 </Project>
