@@ -1,3 +1,5 @@
+using System.Reflection;
+using System.Text.Json;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
@@ -10,8 +12,6 @@ using NetCloak.Persistence;
 using NetCloak.Persistence.Contexts;
 using StyleCop.Filters;
 using StyleCop.HealthChecks;
-using System.Reflection;
-using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
