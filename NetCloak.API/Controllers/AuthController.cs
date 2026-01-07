@@ -43,4 +43,11 @@ public class AuthController : ControllerBase
         var claims = User.Claims.Select(c => new { c.Type, c.Value });
         return Ok(claims);
     }
+
+    [Authorize]
+    [HttpGet("protected")]
+    public IActionResult Protected()
+    {
+        return Ok("Protected");
+    }
 }

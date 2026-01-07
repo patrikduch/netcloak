@@ -8,6 +8,7 @@ using NetCloak.Infrastructure;
 using NetCloak.Infrastructure.Services;
 using NetCloak.Persistence;
 using NetCloak.Persistence.Contexts;
+using StyleCop.Filters;
 using StyleCop.HealthChecks;
 using System.Text.Json;
 
@@ -71,22 +72,8 @@ builder.Services.AddSwaggerGen(options =>
         Description = "JWT Authorization header. Example: 'Bearer {token}'",
     });
 
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer",
-                },
-            },
-            Array.Empty<string>()
-        },
-    });
+    options.OperationFilter<AuthorizeCheckOperationFilter>();
 });
-
 
 // Register the DbContext with Npgsql and the connection string from configuration
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -130,9 +117,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.MapGet("/api/protected", () => "Hello authenticated user!")
-    .RequireAuthorization();
 
 // Map health check endpoints
 app.MapHealthChecks("/health", new HealthCheckOptions
