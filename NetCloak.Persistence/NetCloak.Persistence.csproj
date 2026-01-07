@@ -22,4 +22,8 @@
     <ProjectReference Include="..\NetCloak.Domain\NetCloak.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="EntityConfigurations\" />
+  </ItemGroup>
+
 </Project>
