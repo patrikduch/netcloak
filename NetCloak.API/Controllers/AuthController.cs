@@ -6,6 +6,9 @@ using NetCloak.Application.Dtos.Auth.Requests;
 using NetCloak.Application.Interfaces.Infrastructure;
 using Swashbuckle.AspNetCore.Annotations;
 
+/// <summary>
+/// Handles authentication operations using Keycloak identity provider.
+/// </summary>
 [ApiController]
 [Tags("Auth")]
 [SwaggerTag("Handles authentication operations using Keycloak identity provider. Provides endpoints for login, token refresh, and user information retrieval.")]
@@ -39,6 +42,10 @@ public class AuthController : ControllerBase
             : Ok(result);
     }
 
+    /// <summary>
+    /// Get currently authenticated user.
+    /// </summary>
+    /// <returns>Returns an IActionResult with list of user claims.</returns>
     [Authorize]
     [HttpGet("me")]
     public IActionResult Me()
