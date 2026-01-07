@@ -47,7 +47,7 @@ NetCloak/
 
 ## 🔒 License
 
-This project is proprietary software. See [LICENSE](LICENSE.md) for full terms.
+This project is proprietary software. See [LICENSE](LICENSE) for full terms.
 
 **© Patrik Duch s.r.o., IČO: 24091090**
 
