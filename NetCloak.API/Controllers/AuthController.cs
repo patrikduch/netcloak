@@ -4,9 +4,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NetCloak.Application.Dtos.Auth.Requests;
 using NetCloak.Application.Interfaces.Infrastructure;
+using Swashbuckle.AspNetCore.Annotations;
 
 [ApiController]
-[Route("api/[controller]")]
+[Tags("Auth")]
+[SwaggerTag("Handles authentication operations using Keycloak identity provider. Provides endpoints for login, token refresh, and user information retrieval.")]
+[Route("api/auth")]
 public class AuthController : ControllerBase
 {
     private readonly IAuthService _authService;
