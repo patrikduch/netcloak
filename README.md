@@ -15,7 +15,7 @@ Clean Architecture .NET 8 API with Keycloak SSO integration. Foundation for mult
 
 ## 🛠️ Tech Stack
 
-- .NET 8 (Minimal API + Controllers)
+- .NET 8 (Controllers)
 - Keycloak 26.0
 - PostgreSQL 16
 - Docker
