@@ -5,7 +5,7 @@ using NetCloak.Application.Dtos.Auth.Responses;
 
 public interface IAuthService
 {
-    Task<TokenResponseDTO?> LoginAsync(LoginRequestDTO request);
+    Task<LoginResponseDTO?> LoginAsync(LoginRequestDTO request);
 
-    Task<TokenResponseDTO?> RefreshTokenAsync(string refreshToken);
+    Task<LoginResponseDTO?> RefreshTokenAsync(string refreshToken);
 }

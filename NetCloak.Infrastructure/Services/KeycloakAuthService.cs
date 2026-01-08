@@ -18,7 +18,7 @@ public class KeycloakAuthService : IAuthService
         _configuration = configuration;
     }
 
-    public async Task<TokenResponseDTO?> LoginAsync(LoginRequestDTO request)
+    public async Task<LoginResponseDTO?> LoginAsync(LoginRequestDTO request)
     {
         var tokenEndpoint = $"{_configuration["Keycloak:Authority"]}/protocol/openid-connect/token";
 
@@ -38,14 +38,16 @@ public class KeycloakAuthService : IAuthService
 
         var json = await response.Content.ReadFromJsonAsync<JsonElement>();
 
-        return new TokenResponseDTO(
-            json.GetProperty("access_token").GetString() !,
-            json.GetProperty("refresh_token").GetString() !,
-            json.GetProperty("expires_in").GetInt32(),
-            json.GetProperty("token_type").GetString() !);
+        return new LoginResponseDTO
+        {
+            AccessToken = json.GetProperty("access_token").GetString() !,
+            RefreshToken = json.GetProperty("refresh_token").GetString() !,
+            ExpiresIn = json.GetProperty("expires_in").GetInt32(),
+            TokenType = json.GetProperty("token_type").GetString() !,
+        };
     }
 
-    public async Task<TokenResponseDTO?> RefreshTokenAsync(string refreshToken)
+    public async Task<LoginResponseDTO?> RefreshTokenAsync(string refreshToken)
     {
         var tokenEndpoint = $"{_configuration["Keycloak:Authority"]}/protocol/openid-connect/token";
 
@@ -66,10 +68,12 @@ public class KeycloakAuthService : IAuthService
 
         var json = await response.Content.ReadFromJsonAsync<JsonElement>();
 
-        return new TokenResponseDTO(
-            json.GetProperty("access_token").GetString() !,
-            json.GetProperty("refresh_token").GetString() !,
-            json.GetProperty("expires_in").GetInt32(),
-            json.GetProperty("token_type").GetString() !);
+        return new LoginResponseDTO
+        {
+            AccessToken = json.GetProperty("access_token").GetString() !,
+            RefreshToken = json.GetProperty("refresh_token").GetString() !,
+            ExpiresIn = json.GetProperty("expires_in").GetInt32(),
+            TokenType = json.GetProperty("token_type").GetString() !,
+        };
     }
 }
